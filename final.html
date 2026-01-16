@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="BEST JOURNEY - Спасибо за вашу заявку">
+    <meta name="author" content="BEST JOURNEY">
+    <meta name="language" content="Russian">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BEST JOURNEY - Спасибо">
+    <meta property="og:description" content="Спасибо за вашу заявку на подбор тура">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BEST JOURNEY - Спасибо">
+    <meta name="twitter:description" content="Спасибо за вашу заявку на подбор тура">
+    
+    <title>Спасибо - BEST JOURNEY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* Замените 'background.jpg' на путь к вашему изображению */
+            background-image: url('background.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 15, 15, 0.85);
+            z-index: -1;
+        }
+
+        /* YouTube-style Header */
+        .header {
+            background: rgba(33, 33, 33, 0.95);
+            backdrop-filter: blur(10px);
+            height: 56px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-logo {
+            color: #FF0000;
+            font-size: 20px;
+            font-weight: 700;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .header-title {
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        /* Main Content Container */
+        .main-container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px 16px;
+            background: rgba(15, 15, 15, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #FFFFFF;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+            width: 100%;
+        }
+
+        li {
+            font-size: 14px;
+            color: #AAAAAA;
+            padding: 16px;
+            margin-bottom: 8px;
+            text-align: left;
+            background: #212121;
+            border-radius: 12px;
+            border: 1px solid #303030;
+        }
+
+        .tickets-container {
+            margin-top: 24px;
+            margin-bottom: 32px;
+            width: 100%;
+        }
+
+        .tickets-container h2 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #303030;
+            overflow-x: auto;
+        }
+
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-button {
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: #AAAAAA;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .tab-button:hover {
+            color: #FFFFFF;
+            background: #272727;
+        }
+
+        .tab-button.active {
+            color: #FFFFFF;
+            border-bottom-color: #FF0000;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tickets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .company-group {
+            margin-bottom: 32px;
+            width: 100%;
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            border-bottom: 1px solid #303030;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1a1a1a;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .company-name:hover {
+            background: #272727;
+        }
+
+        .company-name::after {
+            content: '▼';
+            font-size: 12px;
+            color: #AAAAAA;
+            transition: transform 0.3s ease;
+            margin-left: 12px;
+        }
+
+        .company-name.expanded::after {
+            transform: rotate(180deg);
+        }
+
+        .company-tickets-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            margin-top: 8px;
+        }
+
+        .company-tickets-wrapper.expanded {
+            max-height: 5000px;
+        }
+
+        .company-tickets-wrapper .tickets-grid {
+            padding-top: 8px;
+        }
+
+        .ticket-card {
+            padding: 20px;
+            background: #212121;
+            border-radius: 12px;
+            border: 1px solid #303030;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 120px;
+        }
+
+        .ticket-card:hover {
+            background: #272727;
+            border-color: #404040;
+            transform: translateY(-2px);
+        }
+
+        .ticket-platform {
+            font-size: 13px;
+            color: #AAAAAA;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .ticket-price {
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 500;
+            margin: 8px 0;
+        }
+
+        .ticket-date {
+            font-size: 13px;
+            color: #AAAAAA;
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+
+        .ticket-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 16px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 18px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            width: 100%;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .ticket-link:hover {
+            background-color: #CC0000;
+        }
+
+        .ticket-link:active {
+            background-color: #990000;
+        }
+
+        p {
+            font-size: 14px;
+            color: #AAAAAA;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #FF0000;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .info-box {
+            background: #212121;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 24px auto;
+            max-width: 500px;
+            border: 1px solid #303030;
+            text-align: left;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #AAAAAA;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .home-button {
+            margin-top: 24px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Roboto', sans-serif;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            display: inline-block;
+        }
+
+        .home-button:hover {
+            background-color: #CC0000;
+        }
+
+        .home-button:active {
+            background-color: #990000;
+        }
+
+        /* Anex Tour Style Search Block */
+        .search-hero {
+            padding: 40px 16px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .search-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 15, 15, 0.5);
+            z-index: 0;
+        }
+
+        .search-tabs,
+        .search-form-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #404040;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-tab {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #AAAAAA;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            top: 2px;
+        }
+
+        .search-tab:hover {
+            color: #FFFFFF;
+            background: #272727;
+        }
+
+        .search-tab.active {
+            color: #FFFFFF;
+            border-bottom-color: #FF0000;
+        }
+
+        .search-form-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #212121;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #303030;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            align-items: end;
+        }
+
+        .form-group.date-group {
+            grid-column: span 2;
+        }
+
+        .search-button {
+            grid-column: span 1;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            color: #AAAAAA;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px 16px;
+            background: #0F0F0F;
+            border: 1px solid #303030;
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FF0000;
+            background: #1a1a1a;
+        }
+
+        .form-group input::placeholder {
+            color: #666;
+        }
+
+        .search-button {
+            padding: 12px 32px;
+            background: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Roboto', sans-serif;
+            height: fit-content;
+        }
+
+        .search-button:hover {
+            background: #CC0000;
+        }
+
+        .search-button:active {
+            background: #990000;
+        }
+
+        .date-inputs {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .date-inputs input {
+            flex: 1;
+        }
+
+        .date-separator {
+            color: #666;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 16px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            li {
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            .tickets-container h2 {
+                font-size: 18px;
+            }
+
+            .tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab-button {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .tickets-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .company-name {
+                font-size: 15px;
+            }
+
+            .ticket-card {
+                padding: 12px;
+            }
+
+            .ticket-price {
+                font-size: 16px;
+            }
+
+            .success-icon {
+                font-size: 40px;
+            }
+
+            .info-box {
+                padding: 12px;
+            }
+
+            .home-button {
+                font-size: 13px;
+                padding: 10px 16px;
+            }
+
+            .search-hero {
+                padding: 24px 16px;
+            }
+
+            .search-form-container {
+                padding: 16px;
+            }
+
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.date-group {
+                grid-column: span 1;
+            }
+
+            .search-button {
+                grid-column: span 1;
+            }
+
+            .search-tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .search-tab {
+                padding: 10px 16px;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+
+            .date-inputs {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .date-separator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">BEST JOURNEY</div>
+        <div class="header-title">Выбирай. Бронируй. Путешествуй.</div>
+    </div>
+    
+    <div class="search-hero">
+        <div class="search-tabs">
+            <button class="search-tab active" data-search-type="tours">Туры</button>
+            <button class="search-tab" data-search-type="hotels">Отели</button>
+            <button class="search-tab" data-search-type="cruises">Круизы</button>
+            <button class="search-tab" data-search-type="flights">Авиабилеты</button>
+        </div>
+        <div class="search-form-container">
+            <form class="search-form" id="mainSearchForm">
+                <div class="form-group">
+                    <label for="fromCity">Откуда</label>
+                    <input type="text" id="fromCity" name="fromCity" placeholder="Город отправления" list="citiesList" autocomplete="off">
+                    <datalist id="citiesList">
+                        <option value="Москва">
+                        <option value="Санкт-Петербург">
+                        <option value="Новосибирск">
+                        <option value="Екатеринбург">
+                        <option value="Казань">
+                        <option value="Нижний Новгород">
+                        <option value="Челябинск">
+                        <option value="Самара">
+                        <option value="Омск">
+                        <option value="Ростов-на-Дону">
+                        <option value="Уфа">
+                        <option value="Красноярск">
+                        <option value="Воронеж">
+                        <option value="Пермь">
+                        <option value="Волгоград">
+                        <option value="Краснодар">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="destination">Страна, город или отель</label>
+                    <input type="text" id="destination" name="destination" placeholder="Куда хотите поехать" list="destinationsList" autocomplete="off">
+                    <datalist id="destinationsList">
+                        <option value="Москва">
+                        <option value="Санкт-Петербург">
+                        <option value="Сочи">
+                        <option value="Краснодар">
+                        <option value="Анапа">
+                        <option value="Геленджик">
+                        <option value="Турция">
+                        <option value="Египет">
+                        <option value="ОАЭ">
+                        <option value="Таиланд">
+                        <option value="Вьетнам">
+                        <option value="Греция">
+                        <option value="Испания">
+                        <option value="Италия">
+                        <option value="Кипр">
+                        <option value="Мальдивы">
+                        <option value="Шри-Ланка">
+                    </datalist>
+                </div>
+                <div class="form-group date-group">
+                    <label>Даты вылета</label>
+                    <div class="date-inputs">
+                        <input type="date" id="departureDate" name="departureDate" min="">
+                        <span class="date-separator">–</span>
+                        <input type="date" id="returnDate" name="returnDate" min="">
+                    </div>
+                </div>
+                <div class="form-group" id="nightsGroup">
+                    <label for="nights">Ночей</label>
+                    <input type="number" id="nights" name="nights" placeholder="Количество" min="1" value="7">
+                </div>
+                <div class="form-group">
+                    <label for="tourists">Туристы</label>
+                    <select id="tourists" name="tourists">
+                        <option value="1">1 взрослый</option>
+                        <option value="2" selected>2 взрослых</option>
+                        <option value="3">3 взрослых</option>
+                        <option value="4">4 взрослых</option>
+                        <option value="5">5 взрослых</option>
+                        <option value="6">6 взрослых</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-button">Найти</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <h1>Вот что мы подобрали для вас</h1>
+        <ul id="resultsList"></ul>
+    
+    <script>
+        // Установка минимальной даты (сегодня)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('departureDate').min = today;
+        document.getElementById('returnDate').min = today;
+        
+        // Автоматическая установка минимальной даты возвращения при выборе даты отправления
+        document.getElementById('departureDate').addEventListener('change', (e) => {
+            const departureDate = e.target.value;
+            if (departureDate) {
+                document.getElementById('returnDate').min = departureDate;
+                // Если дата возвращения раньше даты отправления, обновляем её
+                if (document.getElementById('returnDate').value && document.getElementById('returnDate').value < departureDate) {
+                    document.getElementById('returnDate').value = departureDate;
+                }
+            }
+        });
+
+        // Обработка переключения вкладок поиска
+        const searchTabs = document.querySelectorAll('.search-tab');
+        const nightsGroup = document.getElementById('nightsGroup');
+        
+        searchTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                searchTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const searchType = tab.getAttribute('data-search-type');
+                
+                // Скрываем поле "Ночей" для авиабилетов
+                if (searchType === 'flights') {
+                    nightsGroup.style.display = 'none';
+                } else {
+                    nightsGroup.style.display = 'flex';
+                }
+            });
+        });
+
+        // Обработка формы поиска
+        document.getElementById('mainSearchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                fromCity: document.getElementById('fromCity').value,
+                destination: document.getElementById('destination').value,
+                departureDate: document.getElementById('departureDate').value,
+                returnDate: document.getElementById('returnDate').value,
+                nights: document.getElementById('nights').value,
+                tourists: document.getElementById('tourists').value,
+                searchType: document.querySelector('.search-tab.active').getAttribute('data-search-type')
+            };
+            
+            // Сохраняем данные в localStorage
+            localStorage.setItem('city', formData.fromCity);
+            localStorage.setItem('destination', formData.destination);
+            localStorage.setItem('departureDate', formData.departureDate);
+            localStorage.setItem('returnDate', formData.returnDate);
+            localStorage.setItem('nights', formData.nights);
+            localStorage.setItem('tourists', formData.tourists);
+            localStorage.setItem('searchType', formData.searchType);
+            
+            // Обновляем результаты на странице
+            updateSearchResults(formData);
+        });
+
+        // Функция для обновления результатов поиска
+        function updateSearchResults(formData) {
+            const resultsList = document.getElementById('resultsList');
+            const cityDeclined = declineCity(formData.fromCity);
+            const destinationCapitalized = formData.destination.charAt(0).toUpperCase() + formData.destination.slice(1).toLowerCase();
+            
+            resultsList.innerHTML = '';
+            const listItem = document.createElement('li');
+            
+            if (formData.searchType === 'flights') {
+                listItem.textContent = `Авиабилеты из ${cityDeclined} в ${destinationCapitalized}`;
+            } else if (formData.searchType === 'hotels') {
+                listItem.textContent = `Отели в ${destinationCapitalized}`;
+            } else if (formData.searchType === 'cruises') {
+                listItem.textContent = `Круизы из ${cityDeclined} в ${destinationCapitalized}`;
+            } else {
+                listItem.textContent = `Туры из ${cityDeclined} в ${destinationCapitalized}`;
+            }
+            
+            resultsList.appendChild(listItem);
+            
+            // Обновляем контейнер с билетами
+            const ticketsContainer = document.querySelector('.tickets-container');
+            if (ticketsContainer) {
+                ticketsContainer.remove();
+            }
+            
+            // Загружаем билеты в зависимости от типа поиска
+            if (formData.fromCity && formData.destination) {
+                if (formData.searchType === 'flights') {
+                    loadFlightsResults(formData.fromCity, formData.destination, formData.departureDate);
+                } else {
+                    loadTicketsResults(formData.fromCity, formData.destination, formData.departureDate);
+                }
+            }
+        }
+
+        // Функция для загрузки результатов авиабилетов
+        function loadFlightsResults(fromCity, toCity, departureDate = null) {
+            const ticketsContainer = document.createElement('div');
+            ticketsContainer.className = 'tickets-container';
+            ticketsContainer.innerHTML = `
+                <h2>Сайты для поиска авиабилетов</h2>
+                <div class="tickets-grid" id="flights-grid"></div>
+            `;
+            
+            const resultsList = document.getElementById('resultsList');
+            resultsList.parentNode.insertBefore(ticketsContainer, resultsList.nextSibling);
+            
+            const flightsGrid = document.getElementById('flights-grid');
+            getFlightTickets(fromCity, toCity, departureDate).then(tickets => {
+                displayTickets(tickets, flightsGrid, fromCity, toCity);
+            });
+        }
+
+        // Функция для загрузки результатов билетов (поезда/туры)
+        function loadTicketsResults(fromCity, toCity, departureDate = null) {
+            const ticketsContainer = document.createElement('div');
+            ticketsContainer.className = 'tickets-container';
+            ticketsContainer.innerHTML = `
+                <h2>Сайты для поиска билетов</h2>
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="trains">🚂 Поезда</button>
+                    <button class="tab-button" data-tab="flights">✈️ Самолеты</button>
+                </div>
+                <div class="tab-content active" id="trains-tab">
+                    <div class="tickets-grid" id="trains-grid"></div>
+                </div>
+                <div class="tab-content" id="flights-tab">
+                    <div class="tickets-grid" id="flights-grid"></div>
+                </div>
+            `;
+            
+            const resultsList = document.getElementById('resultsList');
+            resultsList.parentNode.insertBefore(ticketsContainer, resultsList.nextSibling);
+            
+            const trainsGrid = document.getElementById('trains-grid');
+            const flightsGrid = document.getElementById('flights-grid');
+            const tabButtons = ticketsContainer.querySelectorAll('.tab-button');
+            const tabContents = ticketsContainer.querySelectorAll('.tab-content');
+            
+            getTrainTickets(fromCity, toCity, departureDate).then(tickets => {
+                displayTickets(tickets, trainsGrid, fromCity, toCity);
+            });
+            
+            getFlightTickets(fromCity, toCity, departureDate).then(tickets => {
+                displayTickets(tickets, flightsGrid, fromCity, toCity);
+            });
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabName = button.getAttribute('data-tab');
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(`${tabName}-tab`).classList.add('active');
+                });
+            });
+        }
+
+        // Функция для склонения города в родительный падеж
+        function declineCity(cityName) {
+            if (!cityName || cityName === 'ваш город') {
+                return cityName;
+            }
+            
+            // Приводим к правильному регистру (первая буква заглавная)
+            cityName = cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
+            
+            // Специальные случаи
+            const specialCases = {
+                'Москва': 'Москвы',
+                'Санкт-Петербург': 'Санкт-Петербурга',
+                'Ростов-на-Дону': 'Ростова-на-Дону',
+                'Нижний Новгород': 'Нижнего Новгорода',
+                'Набережные Челны': 'Набережных Челнов',
+                'Великий Новгород': 'Великого Новгорода',
+                'Старый Оскол': 'Старого Оскола',
+                'Новый Уренгой': 'Нового Уренгоя'
+            };
+            
+            if (specialCases[cityName]) {
+                return specialCases[cityName];
+            }
+            
+            // Общие правила склонения
+            if (cityName.endsWith('а')) {
+                return cityName.slice(0, -1) + 'ы';
+            } else if (cityName.endsWith('я')) {
+                return cityName.slice(0, -1) + 'и';
+            } else if (cityName.endsWith('о')) {
+                return cityName.slice(0, -1) + 'а';
+            } else if (cityName.endsWith('ь')) {
+                return cityName.slice(0, -1) + 'я';
+            } else if (cityName.endsWith('й')) {
+                return cityName.slice(0, -1) + 'я';
+            } else {
+                // Для городов на согласную добавляем -а
+                return cityName + 'а';
+            }
+        }
+        
+        // Получаем города из localStorage
+        let city = localStorage.getItem('city') || 'ваш город';
+        const destination = localStorage.getItem('destination') || 'выбранный город';
+        
+        // Склоняем город и приводим к правильному регистру
+        const cityDeclined = declineCity(city);
+        const destinationCapitalized = destination.charAt(0).toUpperCase() + destination.slice(1).toLowerCase();
+        
+        // Создаем список
+        const list = document.getElementById('resultsList');
+        const listItem = document.createElement('li');
+        listItem.textContent = 'Билеты из ' + cityDeclined + ' в ' + destinationCapitalized;
+        list.appendChild(listItem);
+        
+        // Функция для форматирования даты
+        function formatDate(date) {
+            const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 
+                          'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+            const day = date.getDate();
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+            return `${day} ${month} ${year}`;
+        }
+        
+        // Функция для форматирования даты в формате YYYY-MM-DD
+        function formatDateForUrl(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+        
+        // Функция для получения IATA кода города (упрощенная версия)
+        function getCityCode(cityName) {
+            if (!cityName) return cityName;
+            
+            const cityCodes = {
+                'москва': 'MOW',
+                'санкт-петербург': 'LED',
+                'спб': 'LED',
+                'питер': 'LED',
+                'новосибирск': 'OVB',
+                'екатеринбург': 'SVX',
+                'казань': 'KZN',
+                'нижний новгород': 'GOJ',
+                'челябинск': 'CEK',
+                'самара': 'KUF',
+                'омск': 'OMS',
+                'ростов-на-дону': 'ROV',
+                'ростов': 'ROV',
+                'уфа': 'UFA',
+                'красноярск': 'KJA',
+                'воронеж': 'VOZ',
+                'пермь': 'PEE',
+                'волгоград': 'VOG',
+                'краснодар': 'KRR',
+                'саратов': 'RTW',
+                'тюмень': 'TJM',
+                'тольятти': 'TOF',
+                'ижевск': 'IJK',
+                'сочи': 'AER',
+                'анапа': 'AAQ',
+                'геленджик': 'GDZ',
+                'минеральные воды': 'MRV',
+                'калининград': 'KGD',
+                'владивосток': 'VVO',
+                'хабаровск': 'KHV',
+                'иркутск': 'IKT',
+                'якутск': 'YKS',
+                'махачкала': 'MCX',
+                'минеральные воды': 'MRV'
+            };
+            
+            const normalizedName = cityName.toLowerCase().trim();
+            return cityCodes[normalizedName] || cityName;
+        }
+        
+        // Функция для нормализации названия города для URL
+        function normalizeCityName(cityName) {
+            if (!cityName) return '';
+            // Приводим к правильному регистру (первая буква заглавная)
+            return cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
+        }
+        
+        // Функция для получения информации о билетах на самолеты
+        async function getFlightTickets(fromCity, toCity, departureDate = null) {
+            const platforms = [
+                {
+                    name: 'Aviasales',
+                    link: (from, to, date) => {
+                        const fromCode = getCityCode(from);
+                        const toCode = getCityCode(to);
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        
+                        // Aviasales использует IATA коды если они доступны
+                        if (fromCode !== from && toCode !== to) {
+                            // Используем IATA коды
+                            return `https://www.aviasales.ru/search?origin=${fromCode}&destination=${toCode}&depart_date=${dateStr}&adults=1&children=0&infants=0&currency=rub`;
+                        }
+                        // Если кодов нет, используем названия городов
+                        return `https://www.aviasales.ru/search?origin=${encodeURIComponent(fromNormalized)}&destination=${encodeURIComponent(toNormalized)}&depart_date=${dateStr}&adults=1&children=0&infants=0&currency=rub`;
+                    }
+                },
+                {
+                    name: 'Яндекс.Путешествия',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        // Яндекс.Путешествия использует параметры from и to для городов
+                        return `https://travel.yandex.ru/avia/?from=${encodeURIComponent(fromNormalized)}&to=${encodeURIComponent(toNormalized)}&when=${dateStr}`;
+                    }
+                },
+                {
+                    name: 'OneTwoTrip',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        // OneTwoTrip использует параметры from и to
+                        return `https://www.onetwotrip.com/ru/flights/search/?from=${encodeURIComponent(fromNormalized)}&to=${encodeURIComponent(toNormalized)}&departureDate=${dateStr}`;
+                    }
+                },
+                {
+                    name: 'Ozon Travel',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        // Ozon Travel - используем параметры from и to
+                        return `https://www.ozon.ru/travel/flights/?from=${encodeURIComponent(fromNormalized)}&to=${encodeURIComponent(toNormalized)}&date=${dateStr}`;
+                    }
+                },
+                {
+                    name: 'S7 Airlines',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        // S7 Airlines - используем параметры from и to
+                        return `https://www.s7.ru/booking/flights?from=${encodeURIComponent(fromNormalized)}&to=${encodeURIComponent(toNormalized)}&date=${dateStr}`;
+                    }
+                }
+            ];
+            
+            // Используем дату из формы или текущую дату
+            const searchDate = departureDate ? new Date(departureDate) : new Date();
+            if (departureDate) {
+                searchDate.setDate(searchDate.getDate());
+            } else {
+                // Если дата не указана, используем дату через 7 дней
+                searchDate.setDate(searchDate.getDate() + 7);
+            }
+            
+            const ticketsByCompany = {};
+            
+            // Для каждой платформы создаем одну ссылку на поиск
+            platforms.forEach((platform) => {
+                const link = platform.link(fromCity, toCity, searchDate);
+                ticketsByCompany[platform.name] = [{
+                    platform: platform.name,
+                    link: link,
+                    date: formatDate(searchDate),
+                    dateObj: searchDate
+                }];
+            });
+            
+            return ticketsByCompany;
+        }
+        
+        // Функция для получения информации о билетах на поезда
+        async function getTrainTickets(fromCity, toCity, departureDate = null) {
+            const platforms = [
+                {
+                    name: 'РЖД',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        return `https://pass.rzd.ru/tickets/public/ru?layer_name=e3-route&st0=${encodeURIComponent(fromNormalized)}&st1=${encodeURIComponent(toNormalized)}&dt0=${dateStr}`;
+                    }
+                },
+                {
+                    name: 'Tutu.ru',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        return `https://www.tutu.ru/poezda/?from=${encodeURIComponent(fromNormalized)}&to=${encodeURIComponent(toNormalized)}&date=${dateStr}`;
+                    }
+                },
+                {
+                    name: 'Яндекс.Путешествия',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        return `https://travel.yandex.ru/trains/?from=${encodeURIComponent(fromNormalized)}&to=${encodeURIComponent(toNormalized)}&when=${dateStr}`;
+                    }
+                },
+                {
+                    name: 'Ozon Travel',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        return `https://www.ozon.ru/travel/trains/?from=${encodeURIComponent(fromNormalized)}&to=${encodeURIComponent(toNormalized)}&date=${dateStr}`;
+                    }
+                },
+                {
+                    name: 'Поезд.ру',
+                    link: (from, to, date) => {
+                        const dateStr = formatDateForUrl(date);
+                        const fromNormalized = normalizeCityName(from);
+                        const toNormalized = normalizeCityName(to);
+                        return `https://poezd.ru/search/?from=${encodeURIComponent(fromNormalized)}&to=${encodeURIComponent(toNormalized)}&date=${dateStr}`;
+                    }
+                }
+            ];
+            
+            // Используем дату из формы или текущую дату
+            const searchDate = departureDate ? new Date(departureDate) : new Date();
+            if (departureDate) {
+                searchDate.setDate(searchDate.getDate());
+            } else {
+                // Если дата не указана, используем дату через 7 дней
+                searchDate.setDate(searchDate.getDate() + 7);
+            }
+            
+            const ticketsByCompany = {};
+            
+            // Для каждой платформы создаем одну ссылку на поиск
+            platforms.forEach((platform) => {
+                const link = platform.link(fromCity, toCity, searchDate);
+                ticketsByCompany[platform.name] = [{
+                    platform: platform.name,
+                    link: link,
+                    date: formatDate(searchDate),
+                    dateObj: searchDate
+                }];
+            });
+            
+            return ticketsByCompany;
+        }
+        
+        // Функция для отображения билетов, сгруппированных по компаниям
+        function displayTickets(ticketsByCompany, container, fromCity, toCity) {
+            container.innerHTML = '';
+            
+            // Проходим по каждой компании
+            Object.keys(ticketsByCompany).forEach(companyName => {
+                const companyTickets = ticketsByCompany[companyName];
+                
+                // Создаем группу для компании
+                const companyGroup = document.createElement('div');
+                companyGroup.className = 'company-group';
+                
+                // Заголовок компании
+                const companyHeader = document.createElement('div');
+                companyHeader.className = 'company-name';
+                companyHeader.innerHTML = `<span>${companyName}</span>`;
+                companyGroup.appendChild(companyHeader);
+                
+                // Создаем обертку для билетов (для аккордеона)
+                const ticketsWrapper = document.createElement('div');
+                ticketsWrapper.className = 'company-tickets-wrapper';
+                
+                // Создаем контейнер для билетов компании
+                const ticketsContainer = document.createElement('div');
+                ticketsContainer.className = 'tickets-grid';
+                
+                // Добавляем билеты компании (уже отсортированы по дате)
+                companyTickets.forEach(ticket => {
+                    const ticketCard = document.createElement('div');
+                    ticketCard.className = 'ticket-card';
+                    // Проверяем, что ссылка валидна и начинается с http/https
+                    let ticketLink = ticket.link;
+                    if (!ticketLink || typeof ticketLink !== 'string' || !ticketLink.startsWith('http')) {
+                        // Используем Google поиск как запасной вариант с датой и компанией
+                        ticketLink = 'https://www.google.com/search?q=' + encodeURIComponent(`${companyName} билеты ${fromCity} ${toCity} ${ticket.date}`);
+                    }
+                    
+                    // Убеждаемся, что ссылка правильно экранирована и валидна
+                    ticketLink = ticketLink.trim();
+                    
+                    // Проверяем, что ссылка корректна
+                    try {
+                        new URL(ticketLink);
+                    } catch (e) {
+                        // Если ссылка невалидна, используем Google поиск
+                        ticketLink = 'https://www.google.com/search?q=' + encodeURIComponent(`${companyName} билеты ${fromCity} ${toCity} ${ticket.date}`);
+                    }
+                    
+                    // Показываем только ссылку на сайт без цены
+                    ticketCard.innerHTML = `
+                        <div class="ticket-date">Дата поиска: ${ticket.date}</div>
+                        <a href="${ticketLink}" target="_blank" rel="noopener noreferrer" class="ticket-link">Перейти на сайт ${companyName}</a>
+                    `;
+                    ticketsContainer.appendChild(ticketCard);
+                });
+                
+                ticketsWrapper.appendChild(ticketsContainer);
+                companyGroup.appendChild(ticketsWrapper);
+                container.appendChild(companyGroup);
+                
+                // Добавляем обработчик клика для раскрытия/сворачивания
+                companyHeader.addEventListener('click', () => {
+                    const isExpanded = companyHeader.classList.contains('expanded');
+                    if (isExpanded) {
+                        companyHeader.classList.remove('expanded');
+                        ticketsWrapper.classList.remove('expanded');
+                    } else {
+                        companyHeader.classList.add('expanded');
+                        ticketsWrapper.classList.add('expanded');
+                    }
+                });
+            });
+        }
+        
+        // Заполняем форму поиска данными из localStorage при загрузке страницы
+        const savedCity = localStorage.getItem('city');
+        const savedDestination = localStorage.getItem('destination');
+        const savedDepartureDate = localStorage.getItem('departureDate');
+        const savedReturnDate = localStorage.getItem('returnDate');
+        const savedNights = localStorage.getItem('nights');
+        const savedTourists = localStorage.getItem('tourists');
+        const savedSearchType = localStorage.getItem('searchType');
+        
+        if (savedCity) {
+            document.getElementById('fromCity').value = savedCity;
+        }
+        if (savedDestination) {
+            document.getElementById('destination').value = savedDestination;
+        }
+        if (savedDepartureDate) {
+            document.getElementById('departureDate').value = savedDepartureDate;
+        }
+        if (savedReturnDate) {
+            document.getElementById('returnDate').value = savedReturnDate;
+        }
+        if (savedNights) {
+            document.getElementById('nights').value = savedNights;
+        }
+        if (savedTourists) {
+            document.getElementById('tourists').value = savedTourists;
+        }
+        if (savedSearchType) {
+            const searchTab = document.querySelector(`[data-search-type="${savedSearchType}"]`);
+            if (searchTab) {
+                searchTabs.forEach(t => t.classList.remove('active'));
+                searchTab.classList.add('active');
+                if (savedSearchType === 'flights') {
+                    nightsGroup.style.display = 'none';
+                } else {
+                    nightsGroup.style.display = 'flex';
+                }
+            }
+        }
+        
+        // Получаем информацию о билетах и отображаем
+        if (city !== 'ваш город' && destination !== 'выбранный город') {
+            // Используем новую функцию для загрузки результатов
+            const searchType = savedSearchType || 'tours';
+            const departureDate = savedDepartureDate || null;
+            if (searchType === 'flights') {
+                loadFlightsResults(city, destination, departureDate);
+            } else {
+                loadTicketsResults(city, destination, departureDate);
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>
